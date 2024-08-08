@@ -1,0 +1,140 @@
+.markdown-editor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.toolbar {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.toolbar button {
+  margin-right: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s;
+}
+
+.toolbar button:hover {
+  background-color: #e0e0e0;
+}
+
+textarea {
+  width: 80%;
+  height: 200px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.preview {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  min-height: 200px;
+}
+
+.placeholder {
+  color: red; /* Highlight color for placeholders */
+  font-weight: bold;
+  background-color: #fdd;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.placeholder-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.placeholder-input input {
+  margin-right: 10px;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-placeholder-button {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s;
+}
+
+.add-placeholder-button:hover {
+  background-color: #e0e0e0;
+}
+
+.submit-button,
+.close-button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+}
+
+.submit-button:hover,
+.close-button:hover {
+  background-color: #e0e0e0;
+}
+
+.remove-placeholder-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.remove-placeholder-button:hover {
+  background-color: darkred;
+}
