@@ -7,15 +7,13 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
-import { PROFILE_AVATAR } from "../utils/constants";
+import { APP_BACKGROUND, PROFILE_AVATAR } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -54,7 +52,7 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
+              // navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -76,7 +74,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate("/browse");
+          // navigate("/browse");
           console.log(user);
         })
         .catch((error) => {
@@ -95,7 +93,7 @@ const Login = () => {
       <div className="absolute">
         <img
           alt="background"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/b2c3e95b-b7b5-4bb7-a883-f4bfc7472fb7/c47eb5b8-07f7-400e-9d54-49630857116d/GB-en-20240805-POP_SIGNUP_TWO_WEEKS-perspective_WEB_37d05758-e321-4b45-a195-519d45729021_large.jpg"
+          src={APP_BACKGROUND}
         />
       </div>
       <form
