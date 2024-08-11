@@ -15,7 +15,7 @@ const Header = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        const { uid, email, displayName, photoURL } = user.uid;
+        const { uid, email, displayName, photoURL } = user;
         console.log("User ID: ", user);
         dispatch(
           addUser({
@@ -47,18 +47,20 @@ const Header = () => {
         src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
         alt="logo"
       />
-      <div className="flex items-center p-2">
-        <img
-          className="w-12 h-12 rounded-sm mr-4"
-          alt="user icon"
-          src={user.photoURL}
-        />
-        <button
-          onClick={handleSignout}
-          className="border border-spacing-4 bg-red-700 p-[10px] space-x-2 text-white font-bold rounded-lg">
-          Sign Out
-        </button>
-      </div>
+      {user && (
+        <div className="flex items-center p-2">
+          <img
+            className="w-12 h-12 rounded-sm mr-4"
+            alt="user icon"
+            src={user?.photoURL}
+          />
+          <button
+            onClick={handleSignout}
+            className="border border-spacing-4 bg-red-700 p-[10px] space-x-2 text-white font-bold rounded-lg">
+            Sign Out
+          </button>
+        </div>
+      )}
     </div>
   );
 };
