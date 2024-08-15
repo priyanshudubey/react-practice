@@ -10,14 +10,14 @@ import { APP_LOGO } from "../utils/constants";
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
-  console.log("user photo: ", user);
+  // console.log("user photo: ", user);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName, photoURL } = user;
-        console.log("User ID: ", user);
+        // console.log("User ID: ", user);
         dispatch(
           addUser({
             uid: uid,
