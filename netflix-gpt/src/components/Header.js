@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { APP_LOGO } from "../utils/constants";
+import { toogleGptSearchView } from "../utils/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -35,6 +36,10 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleGptSearchClick = () => {
+    dispatch(toogleGptSearchView());
+  };
+
   const handleSignout = () => {
     signOut(auth)
       .then(() => {
@@ -53,14 +58,24 @@ const Header = () => {
       />
       {user && (
         <div className="flex items-center p-2">
+          <select>
+            <option value="en">English</option>
+            <option vlaue="hindi">Spanish</option>
+            <option value="spanish">Hindi</option>
+          </select>
           <img
             className="w-12 h-12 rounded-sm mr-4"
             alt="user icon"
             src={user?.photoURL}
           />
           <button
+            onClick={handleGptSearchClick}
+            className="border border-spacing-4 bg-red-700 p-[10px] text-white font-bold rounded-lg mx-2">
+            Netflix-GPT
+          </button>
+          <button
             onClick={handleSignout}
-            className="border border-spacing-4 bg-red-700 p-[10px] space-x-2 text-white font-bold rounded-lg">
+            className="border border-spacing-4 bg-red-700 p-[10px] text-white font-bold rounded-lg">
             Sign Out
           </button>
         </div>
