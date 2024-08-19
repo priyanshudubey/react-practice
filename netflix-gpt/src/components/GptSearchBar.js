@@ -1,31 +1,24 @@
 import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import lang from "../utils/languageConstants";
-import openai from "../utils/openai";
+// import client from "../utils/openai";yy
 
 const GptSearchBar = () => {
   const langKey = useSelector((store) => store.config.lang);
   const searchText = useRef(null);
+  // const genAI = new GoogleGenerativeAI(GEMINI_KEY);
 
   const handleGptSearchClick = async () => {
-    try {
-      console.log(searchText.current.value);
-      const gptQuery =
-        "Act as a Movie Recommendation system and suggest some movies for the query " +
-        searchText.current.value +
-        ". Only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Gadar, Sholay, Don, Hungama, Dhamal";
-      const gptResults = await openai.chat.completions.create({
-        messages: [{ role: "user", content: gptQuery }],
-        model: "gpt-3.5-turbo",
-      });
-
-      console.log("GPT Result: ", gptResults.choices);
-    } catch (error) {
-      console.error("Error making API call:", error);
-      if (error.response) {
-        console.error("API Response Error:", error.response.data);
-      }
-    }
+    console.log("Search Text: ", searchText.current.value);
+    // const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    // const result = await model.generateContent(searchText.current.value);
+    // console.log("Gemini result: ", result.response.text());
+    // const msg = await client.chat({
+    //   // model: "claude-3-5-sonnet-20240620",
+    //   // max_tokens: 1024,
+    //   messages: searchText.current.value,
+    // });
+    // console.log(msg);
   };
 
   return (
